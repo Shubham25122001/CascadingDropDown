@@ -1,0 +1,153 @@
+/****** Object:  StoredProcedure [dbo].[SHUBHAM_Data_Create]    Script Date: 04-10-2023 19:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[SHUBHAM_Data_Create](
+ @Country nvarchar(255),
+ @State nvarchar(255),
+ @City nvarchar(255)
+ )
+ as 
+ begin
+ insert into SHUBHAM_Data(Country, State, City)
+ values(@Country, @State, @City);
+ end
+
+ create procedure SHUBHAM_Data_Delete(
+ @Id int
+ )
+ as
+ begin
+ delete from SHUBHAM_Data where Id = @Id;
+ end
+
+
+
+
+
+/****** Object:  Table [dbo].[SHUBHAM_City]    Script Date: 04-10-2023 17:33:09 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE TABLE [dbo].[SHUBHAM_City](
+	[CityId] [int] IDENTITY(1,1) NOT NULL,
+	[CityName] [nvarchar](255) NULL,
+	[StateId] [int] NULL
+) ON [PRIMARY]
+GO
+
+
+
+
+
+
+--create table SHUBHAM_Country(
+--Id int Identity,
+--Name NVARCHAR(255)
+--);
+
+--create table SHUBHAM_State(
+--Id int Identity,
+--Name NVARCHAR(255),
+--CountryId Int
+--);
+
+--create table SHUBHAM_City(
+--Id int Identity,
+--Name NVARCHAR(255),
+--StateId int
+--);
+
+
+--create table SHUBHAM_Data(
+--Id int Identity primary key,
+--Country nvarchar(255),
+--State nvarchar(255),
+--City nvarchar(255)
+--)
+
+
+create procedure SHUBHAM_Data_GetAll
+as
+begin
+select * from SHUBHAM_Data;
+end
+
+--insert into shubham_data values('India', 'Gujrat', 'Ahemdabad');
+SHUBHAM_Data_GetAll
+
+create procedure SHUBHAM_Data_Create(
+ @Country nvarchar(255),
+ @State nvarchar(255),
+ @City nvarchar(255)
+ )
+ as 
+ begin
+ insert into SHUBHAM_Data(Country, State, City)
+ values(@Country, @State, @City);
+ end
+
+ create procedure SHUBHAM_Data_Update(
+ @Id int,
+ @Country nvarchar(255),
+ @State nvarchar(255),
+ @City nvarchar(255)
+ )
+ as 
+ begin
+ update SHUBHAM_Data
+ set
+ @Country = @Country,
+ @State = @State,
+ @City = @City
+ where Id = @Id;
+ end
+
+
+ create procedure SHUBHAM_Data_GetById(
+ @Id int
+ )
+as
+begin
+select * from SHUBHAM_Data where Id = @Id;
+end
+
+
+
+
+select * from SHUBHAM_Country
+select * from SHUBHAM_State where CountryId = 1
+select * from SHUBHAM_City where StateId = 1
+
+
+
+insert into SHUBHAM_State values('Indore', 1);
+insert into SHUBHAM_State values('Bhopal', 1);
+insert into SHUBHAM_State values('Jabalpur', 1);
+insert into SHUBHAM_State values('Ujjain', 1);
+insert into SHUBHAM_State values('Katni', 1);
+
+shubham_product_getall
+
+select * from SHUBHAM_Product
+
+select * from SHUBHAM_Category
+
+
+SELECT * FROM SHUBHAM_State WHERE CountryId = 1
+
+SELECT StateId, StateName FROM SHUBHAM_State WHERE CountryId = 1;
+
+
+SELECT CityId, CityName FROM SHUBHAM_City WHERE StateId = 1
+
+
+SELECT CityId, CityName FROM SHUBHAM_City WHERE StateId=1
+
+
